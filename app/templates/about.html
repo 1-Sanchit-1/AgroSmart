@@ -1,0 +1,88 @@
+{% load crispy_forms_tags %}
+<html>
+    <head>
+        <title>Agro Smart</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'about.css' %}">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-dark navbar-expand-sm sticky-top bg-dark">
+            <div class="container-fluid"><a class="navbar-brand text-center" href="#" style="margin: 0px 0px;"><b>AGRO SMART</b></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav text-light ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'index' %}"><b><i class="fas fa-home"></i>Home</b></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'about' %}"><b><i class="fas fa-info-circle"></i>About</b></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'visitor_signup' %}"><b><i class="fas fa-user-plus"></i>Create Account</b></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'visitor_login' %}"><b><i class="fas fa-sign-in-alt"></i>Login</b></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+    <section class="general-area-home">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+          <div class="section-header">
+            <h3 class="section-title">About</h3>
+            <p class="section-description">To be farmer is to be a student forever, for each day brings somethings new.</p>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="zoom-in">
+              <div class="box">
+                <div class="icon"><a><i class="bi bi-tree"></i></a></div>
+                <h4 class="title"><a>Find Detail abou Soil</a></h4>
+                <p class="description">You can find detail about soil and get suitable crop for the soil.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="zoom-in">
+              <div class="box">
+                <div class="icon"><a><i class="bi bi-cloud-lightning-rain"></i></a></div>
+                <h4 class="title"><a>Find Rainfall</a></h4>
+                <p class="description">You can find rainfall opf your district of past five year.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="zoom-in">
+              <div class="box">
+                <div class="icon"><a><i class="bi bi-binoculars-fill"></i></a></div>
+                <h4 class="title"><a>Crop Recommendation</a></h4>
+                <p class="description">You can Find suitable crop for your soil using meachine learning.</p>
+              </div>
+            </div>
+    
+            <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="zoom-in">
+              <div class="box">
+                <div class="icon"><a><i class="bi bi-cart4"></i></a></div>
+                <h4 class="title"><a>Virtual Market</a></h4>
+                <p class="description">You can able to sell and buy organic products like vegitable,fruits etc.. at resonable price.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="zoom-in">
+              <div class="box">
+                <div class="icon"><a><i class="bi bi-card-checklist"></i></a></div>
+                <h4 class="title"><a>Request for Seeds</a></h4>
+                <p class="description">Every user can request for seed to Agriculture officer easy thorugh this website.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="zoom-in">
+              <div class="box">
+                <div class="icon"><a><i class="bi bi-card-checklist"></i></a></div>
+                <h4 class="title"><a>Request for Fertilizer</a></h4>
+                <p class="description">Every user can request for Fertilizer to Agriculture officer easy thorugh this website.</p>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+    </section>
+
+
+    </body>
+</html>

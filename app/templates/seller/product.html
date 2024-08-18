@@ -1,0 +1,42 @@
+{% extends "seller/seller_home.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'seller/product.css' %}">
+
+    <!-- Page content -->
+    <div class="content">
+
+        <div class="btn-group float-right">
+            <a href="{% url 'add_product' %}" class="btn btn-primary"><i class="fas fa-plus-circle"></i>Add Product</a>
+        </div>
+
+        <h1><u><b>Product</b></u></h1>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">SL NO.</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Add On</th>
+                    <th scope="col">Know More</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in products %}
+                <tr>
+                    <th>{{ forloop.counter }}</th>
+                    <td>{{p.product_name}}</td>
+                    <td>{% if p.stock is not True %}<font color='red'><b>Out of stock</b></font>{% endif %}{% if p.stock is True %}<font color='green'><b>Stock avaliable</b></font>{% endif %}</td>
+                    <td>{{p.price}} for {{p.price_per_quantity}}</td>
+                    <td>{{p.joindate}}</td>
+                    <td><a class="btn btn-success" href="{% url 'detail_product_seller'  p.id %}">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}

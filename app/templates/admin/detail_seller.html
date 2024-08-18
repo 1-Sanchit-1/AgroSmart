@@ -1,0 +1,60 @@
+{% extends "admin/admin_home.html" %}
+{% block content %}
+
+<style>
+
+    .content-wrapper{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .column{
+      width: 500px;
+      padding: 10px;
+    }
+
+    img.featured{
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-top: 20px;
+  }
+
+</style>
+
+    <!-- Page content -->
+    <div class="content">
+        <div class="content-wrapper">
+            <div class="column">
+                <img src="{{sellers.logo.url}}" class="featured" alt="...">
+                <h3 class="card-title"><b><u>{{sellers.garden}}</u></b></h3>
+                <p class="card-text"><i>{{sellers.describe}}</i></p>
+            </div>
+
+            <div class="column">
+                <h1>{{sellers.garden}}</h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <p>Owened by <b>{{sellers.get_name}}</b></p>
+                            <p>Username <b>{{sellers.user}}</b></p>
+                            <p>Email id <b>{{sellers.email}}</b></p>
+                            <p>Gender <b>{{sellers.gender}}</b></p>
+                            <p>District <b>{{sellers.district}}</b></p>
+                        </div>
+                        <div class="col">
+                            <p>Join On <b>{{sellers.joindate}}</b></p>
+                            <p>Address: <b>{{sellers.address|linebreaks}}</b></p>
+                        </div>
+                    </div>
+                </div><hr>
+                <a type="button" class="btn btn-outline-Success" href="{% url 'approve_seller' %}?seller_id={{sellers.pk}}" style="width: 100%;">Approve Seller</a><br> <br>
+                <a type="button" class="btn btn-outline-Danger" href="{% url 'delete_seller' %}?seller_id={{sellers.pk}}" style="width: 100%;">Reject Seller</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

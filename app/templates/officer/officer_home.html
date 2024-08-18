@@ -1,0 +1,177 @@
+{% load crispy_forms_tags %}
+<html>
+    <head>
+        <title>Agro Smart</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'officer/officer_home.css' %}">
+
+    </head>
+
+    <body>
+
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark">
+        <div class="container-fluid"><a class="navbar-brand text-center" href="#" style="margin: 0px 0px;">AGRO SMART</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav text-light ml-auto">
+                    <li class="nav-item" role="presentation"><a class="user"><i class="fas fa-user-circle"></i>{{user.username}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <a href="{% url 'officer_home' %}"><i class="fas fa-home"></i>Home</a>
+        <a href="{% url 'officer_profile' %}"><i class="fas fa-address-card"></i>Profile</a>
+
+        <button class="dropdown-btn"><i class="fas fa-seedling"></i>Manage Soil<i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="{% url 'officer_active_soil' %}"><i class="fas fa-map-marked"></i>View Locations Soil detail</a>
+            <a href="{% url 'officer_active_soil_detail' %}"><i class="fab fa-searchengin" style="padding-right: 10px;"></i>View Soils Details</a>
+        </div>
+
+        <a href="{% url 'officer_active_rainfall' %}"><i class="fas fa-cloud-rain"></i>View Rainfall</a>
+
+        <button class="dropdown-btn"><i class="fas fa-file"></i>Request for Seed<i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="{% url 'officer_seed_request' %}"><i class="fas fa-file-signature"></i>View Request</a>
+            <a href="{% url 'officer_approve_seed_request' %}"><i class="far fa-check-circle" style="padding-right: 10px;"></i>Approved Request</a>
+            <a href="{% url 'officer_reject_seed_request' %}"><i class="fas fa-ban"></i>Rejected Request</a>
+        </div>
+
+        <button class="dropdown-btn"><i class="far fa-file" style="padding-right: 10px;"></i>Request for Fertilizer<i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="{% url 'officer_fertilizer_request' %}"><i class="fas fa-file-signature"></i>View Request</a>
+            <a href="{% url 'officer_approve_fertilizer_request' %}"><i class="far fa-check-circle" style="padding-right: 10px;"></i>Approved Request</a>
+            <a href="{% url 'officer_reject_fertilizer_request' %}"><i class="fas fa-ban"></i>Rejected Request</a>
+        </div>
+
+        {% comment %} <div class="logout">
+            <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div> {% endcomment %}
+        <div class="logout">
+            {% comment %} <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a> {% endcomment %}
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button class="fas fa-sign-out-alt"  type="submit">logout</button>
+            </form>
+        </div> 
+    </div>
+
+    <script>
+        //* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } 
+                else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+    {% block content %}
+
+    <!-- Page content -->
+    <div class="content">
+        
+        <style>
+            .hero__item {
+                height: 431px;
+                display: flex;
+                align-items: center;
+                padding-left: 75px;
+            }
+            .hero__text span {
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 4px;
+                color: #7fad39;
+                font-family: "Cairo", sans-serif;
+            }
+            .hero__text h2 {
+                font-size: 46px;
+                color: #000000;
+                line-height: 52px;
+                font-weight: 700;
+                margin: 10px 0;
+                font-family: "Cairo", sans-serif;
+            }
+            .hero__text p {
+                margin-bottom: 35px;
+                color: black;
+                font-family: "Cairo", sans-serif;
+            }  
+            a.btn-outline-primary{
+                font-family: "Poppins", sans-serif;
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 16px;
+                letter-spacing: 1px;
+                display: inline-block;
+                padding: 8px 28px;
+                border-radius: 50px;
+                transition: 0.5s;
+                margin: 10px;
+                border: 2px solid green;
+                color: green;
+            }
+    
+            a.btn-outline-primary:hover{
+                background: green;
+                border: 2px solid green;
+            }
+        </style>
+
+        <div class="hero__item set-bg" style="background-image: url('../static/image/agropic9.jpg'); width: 100%; background-size: cover;">
+            <div class="hero__text">
+                <span>Agro Smart</span>
+                <h2>Manage Location Soil details</h2>
+                <p>Manage location soil deatils, it provide more feature to small scale agriculture..</p>
+                <a href="{% url 'officer_active_soil' %}" class="btn btn-outline-primary">Go There</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-header">
+                        <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-seedling"></i><U><b>Manage Locations soil Detail</b></U></h5>
+                        <p class="card-text"><b>Manage locations soil details, it provide more easy for their agriculture...</b></p>
+                        <a href="{% url 'officer_active_soil' %}" class="btn btn-outline-dark"><b>Go There</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-header">
+                        <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-seedling"></i><U><b>Mange Rainfall Details</b></U></h5>
+                        <p class="card-text"><b>Rainfall is the most essential thing for agriculture, make update soon...</b></p>
+                        <a href="{% url 'officer_active_rainfall' %}" class="btn btn-outline-dark"><b>Go There</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endblock %}
+
+    </body>
+</html>
