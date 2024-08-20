@@ -35,7 +35,7 @@
           <h4 style="text-transform: uppercase; font-family: Cairo, sans-serif; text-align: center; padding-top: 10px;"><a style="color: #252525;" href="{% url 'view_product_visitor'  c.product.id %}" ><b>{{c.product.product_name}}</b></a></h4>
         </div>
         <div class="column">
-            <p><b>₹.{{c.product.price}}/<sub style="font-size: 18px;">{{c.product.price_per_quantity}}</sub></b></p>
+            <p><b>₹{{c.product.price}}/<sub style="font-size: 18px;">{{c.product.price_per_quantity}}</sub></b></p>
             <p><b>{{c.product.category}}</b></p>
             <p>Product by <b>{{c.product.seller.garden}}</b></p>
             <p>Add to Cart On <b>{{c.created_at}}</b></p>
