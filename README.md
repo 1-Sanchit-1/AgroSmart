@@ -3,9 +3,10 @@
 AgroSmart is an intelligent agricultural management system designed to optimize farming decisions through machine learning. By consolidating soil nutrient analysis, rainfall data, crop recommendations, and yield predictions, AgroSmart W enhances decision-making for farmers, helping them select the best crops and forecast yields accurately. The system also integrates a Virtual Market for organic products, enabling interactions between visitors, officers, and sellers.
 
 ## Table of Contents
-### Technologies Used
-### Key Features
-### How to Run the Project
+- [Technologies Used](#technologies-used)
+- [Key Features](#key-features)
+- [How to Run the Project](#how-to-run-the-project)
+
 
 
 ## Technologies Used
@@ -29,7 +30,7 @@ Virtual Environment: Recommended to isolate dependencies.
 
 1. Clone the Repository:
    ```bash
-   git clone [Clone](https://github.com/1-Sanchit-1/AgroSmart.git)
+   git clone https://github.com/1-Sanchit-1/AgroSmart.git
    ```
 
 2. **Create a Virtual Environment:**
